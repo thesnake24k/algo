@@ -1,0 +1,39 @@
+FUNCTION tabsearch(tab: array_of INTEGER ,search:integer) : BOOLEAN
+VAR
+    res:BOOLEAN;
+    i:INTEGER;
+BEGIN
+    res:=false;
+    FOR i FROM 0 TO (tab.length-1) STEP 1  DO
+        IF (tab[i]=search) THEN
+            res:=true;
+        END_IF
+    END_FOR
+        RETURN res ;
+END
+
+
+
+ALGORITHM SUM_SEARCH
+VAR
+    sum,i:INTEGER;
+    tab1,tab2: array_of integer[50];
+BEGIN
+sum:=0;
+    FOR i FROM 0 TO (tab2.length-1) STEP 1  DO
+        test:= tabsearch(tab1,tab2[i])
+        IF (test = false ) THEN
+            sum:=sum+tab2[i];
+        END_IF
+        
+    END_FOR
+     FOR i FROM 0 TO (tab1.length-1) STEP 1  DO
+        test:= tabsearch(tab2,tab1[i])
+        IF (test = false ) THEN
+            sum:=sum+tab1[i];
+        END_IF
+        
+    END_FOR
+    write("the result is", sum)
+
+END

@@ -1,0 +1,74 @@
+PROCEDURE dot_product(tab1,tab2:array_of INTEGER,var ps:INTEGER)
+VAR
+   i : INTEGER;
+BEGIN
+i:=0;
+ps:=0;
+
+IF (tab1.length == tab2.length) THEN
+    FOR i FROM 0 TO tab1.length STEP 1  DO
+        ps:= ps+(tab1[i]*tab2[i]);
+    END_FOR
+ELSE
+    ps:= none;
+    write("error");
+END_IF
+
+END
+ALGORITHM orthogonal_orNot
+VAR
+    tab1,tab2:array_of INTEGER [50];
+    ps,t1,t2:INTEGER;
+
+
+BEGIN
+   write("type the first table lenght"); read(t1);
+   write("type the second table lenght");read(t2);
+   write("fill the first table")
+   FOR i FROM 0 TO t1 STEP 1  DO
+    write("fill case N:",i);
+    read(tab1[i]);
+   END_FOR
+   write("fill the second table")
+   FOR i FROM 0 TO t2 STEP 1  DO
+    write("fill case N:",i);
+    read(tab2[i]);
+   END_FOR
+
+   /*dot_product(tab1,tab2,ps);
+
+   if (ps=0) THEN
+     write("orthogonal");
+   ELSE
+     write("not orthogonal")
+   END_IF
+
+*/
+  ps:=dot_fun(tab1,tab2);
+   if (ps=0) THEN
+     write("orthogonal");
+   ELSE
+     write("not orthogonal")
+   END_IF
+END
+
+
+
+FUNCTION dot_fun(tab1,tab2: array_of INTEGER) : INTEGER
+VAR
+   i,ps : INTEGER;
+BEGIN
+i:=0;
+ps:=0;
+
+IF (tab1.length == tab2.length) THEN
+    FOR i FROM 0 TO tab1.length STEP 1  DO
+        ps:= ps+(tab1[i]*tab2[i]);
+    END_FOR
+ELSE
+    ps:= none;
+    write("error");
+END_IF
+
+RETURN ps;
+END
